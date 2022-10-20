@@ -29,6 +29,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 45efd5f78d377f4468e47500b1151d8c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e124a3b2596d42bf883d296c952ec179_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 6589f5dbb74534149a0cb6797ef9391e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture:
         m_Texture: {fileID: 2800000, guid: ec4ee4e0337ac764e88262285903c6c9, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -47,11 +51,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Wind_Noise: 42.97
+    - _Smoothness: 0
+    - _Wind_Noise: 1.27
     - _Wind_Strength: 1.31
     m_Colors:
+    - _Color: {r: 0.990566, g: 0.367468, b: 0, a: 0}
     - _Wind_Direction: {r: 6, g: 0.45, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1678440984105468436
