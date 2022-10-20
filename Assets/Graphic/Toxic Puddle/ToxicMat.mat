@@ -50,10 +50,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Voronoi_Agitation: 2.08
+    - _Voronoi_Agitation: 0.54
     - _Voronoi_Power: 6.2
     - _Voronoi_Scale: 5.28
     m_Colors:
-    - _Color: {r: 0.08376395, g: 0.5849056, b: 0, a: 0}
-    - _Voronoi_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.19020759, g: 1.1531334, b: 0, a: 0}
+    - _Voronoi_Color: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
   m_BuildTextureStacks: []
