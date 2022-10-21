@@ -63,13 +63,13 @@ Material:
     - _Occulsion: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Shadows: 1.04
+    - _Shadows: 3.3
     - _Smoothness: 0
-    - _Wind_Noise: 1.27
+    - _Wind_Noise: 0.44
     - _Wind_Strength: 1.31
     m_Colors:
-    - _Color: {r: 0.05222171, g: 0.4528302, b: 0, a: 0}
-    - _Wind_Direction: {r: 6, g: 0.45, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Wind_Direction: {r: 6, g: 5.47, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1678440984105468436
 MonoBehaviour:
