@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8793131866415960982
+--- !u!114 &-1045723286671558268
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RoadMat
+  m_Name: TrunkShaderMat
   m_Shader: {fileID: -6465566751694194690, guid: e9381ccbdd7ebfa43b182cb642fd1c89,
     type: 3}
   m_ValidKeywords: []
@@ -36,10 +36,6 @@ Material:
     m_TexEnvs:
     - _Height:
         m_Texture: {fileID: 2800000, guid: 52f5f08bd23b74c47aa9e234384f2f58, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Metallic:
-        m_Texture: {fileID: 2800000, guid: 952232e10985d284aa24682ddb992b6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normals:
@@ -71,10 +67,9 @@ Material:
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Roughness_Multiplier: 0.37
-    - _Smoothness: 0
+    - _Roughness_Multiplier: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Offset: {r: -2.96, g: 0, b: 0, a: 0}
-    - _Tilling: {r: 4, g: -4, b: 0, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tilling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
