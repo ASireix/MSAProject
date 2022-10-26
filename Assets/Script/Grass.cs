@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Grass : MonoBehaviour
 {
+    RaycastHit hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class Grass : MonoBehaviour
         rnd = Random.Range(-0.2f, 0.2f);
         float xScale = transform.localScale.x;
         transform.localScale = new Vector3(xScale+rnd, xScale+rnd, xScale+rnd);
+        Physics.Raycast(new Vector3(0, 100.0f, 0), Vector3.down, out hit, 200.0f);
 
     }
 
