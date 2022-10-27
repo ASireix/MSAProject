@@ -19,6 +19,10 @@ public class QuestionManager : MonoBehaviour
     bool triggeredQuestion;
     public float fadeSpeed;
 
+    public Color baseTextColor;
+    public Color goodAnswerColor;
+    public Color badAnswerColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +36,7 @@ public class QuestionManager : MonoBehaviour
         if (currentTime < timeToAnswer && triggeredQuestion)
         {
             currentTime += Time.deltaTime;
-            
+
         }
         else
         {
@@ -41,11 +45,11 @@ public class QuestionManager : MonoBehaviour
             {
                 CheckAnswer();
             }
-            
-            
+
+
         }
 
-        timer.text = Mathf.Round(timeToAnswer - currentTime)+"";
+        timer.text = Mathf.Round(timeToAnswer - currentTime) + "";
     }
 
     public void SetQuestions(Question[] questions)
@@ -55,36 +59,55 @@ public class QuestionManager : MonoBehaviour
 
     public void TriggerQuestion()
     {
+        if (questionsList.Count <= 0)
+        {
+            Debug.Log("Plus de questions restante");
+            return;
+        }
+
         Question q = questionsList[0];
         triggeredQuestion = true;
 
         for (int i = 0; i < rep.Count; i++)
         {
             rep[i].text = q.reponses[i];
+            StartCoroutine(FadeToColor(fadeSpeed, baseTextColor, rep[i], result[i]));
+            StartCoroutine(FadeToColor(fadeSpeed, baseTextColor, rep[i], result[i]));
         }
     }
 
     void CheckAnswer()
     {
         //GameManager.instance.currentAnswer
-        if (questionsList.Count > 0)
+        Question q = questionsList[0];
+        int index = q.bonne_Reponse;
+
+        for (int j = 0; j < 3; j++)
         {
-            Question q = questionsList[0];
-
-            StartCoroutine(Fade(fadeSpeed));
-
-            triggeredQuestion = false;
+            if (j == index)
+            {
+                StartCoroutine(FadeToColor(fadeSpeed, goodAnswerColor, rep[j], result[j]));
+            }
+            else
+            {
+                StartCoroutine(FadeToColor(fadeSpeed, badAnswerColor, rep[j], result[j]));
+            }
         }
+
+        //StartCoroutine(FadeToAnswer(fadeSpeed));
+        questionsList.Remove(q);
+        triggeredQuestion = false;
+
     }
 
-    IEnumerator Fade(float t)
+    IEnumerator FadeToAnswer(float t)
     {
         Question q = questionsList[0];
 
         int index = q.bonne_Reponse;
 
         Debug.Log("it worked");
-        for (float i=0f; i<t; i+= 0.1f)
+        for (float i = 0f; i < t; i += 0.1f)
         {
             for (int j = 0; j < 3; j++)
             {
@@ -100,8 +123,38 @@ public class QuestionManager : MonoBehaviour
                 }
                 yield return null;
             }
-            
+
         }
+
         
-    } 
+
+    }
+
+    IEnumerator FadeToColor(float t, Color newColor, TextMeshProUGUI textToChange, Image imageToChange)
+    {
+        for (float i = 0f; i < t; i += 0.1f)
+        {
+            imageToChange.color = Color.Lerp(imageToChange.color, newColor, i / t);
+            textToChange.color = Color.Lerp(textToChange.color, newColor, i / t);
+            yield return null;
+        }
+        /*
+        switch (textToChange)
+        {
+            case null:
+                for (float i = 0f; i < t; i += 0.1f)
+                {
+                    imageToChange.color = Color.Lerp(imageToChange.color, newColor, i / t);
+                    yield return null;
+                }
+                    break;
+            default:
+                for (float i = 0f; i < t; i += 0.1f)
+                {
+                    textToChange.color = Color.Lerp(textToChange.color, newColor, i / t);
+                    yield return null;
+                }
+                break;
+        }*/
+    }
 }

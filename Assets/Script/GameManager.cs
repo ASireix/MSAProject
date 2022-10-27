@@ -50,6 +50,6 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         questionManager.SetQuestions(dataManager.questions[difficulty.ToString()][categorie.ToString()]);
-        questionManager.TriggerQuestion();
+        //questionManager.TriggerQuestion();
     }
 }
