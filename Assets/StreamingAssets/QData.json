@@ -1,0 +1,142 @@
+{
+	"Particuliers": {
+		"Viticulture": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		],
+		"Jardins/Espaces Verts": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		],
+		"Élevage": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		],
+		"Cultures": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		]
+	},
+	"Exploitant": {
+		"Viticulture": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		],
+		"Jardins/Espaces Verts": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		],
+		"Élevage": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		],
+		"Cultures": [
+			{
+				"Intitulé": "Question1",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 1
+			},
+			{
+				"Intitulé": "Question2",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 0
+			},
+			{
+				"Intitulé": "Question3",
+				"Réponses": ["Réponse1", "Réponse2", "Réponse3"],
+				"Bonne Réponse": 2
+			}
+		]
+	}
+}
