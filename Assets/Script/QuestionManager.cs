@@ -45,8 +45,6 @@ public class QuestionManager : MonoBehaviour
             {
                 CheckAnswer();
             }
-
-
         }
 
         timer.text = Mathf.Round(timeToAnswer - currentTime) + "";
@@ -78,7 +76,6 @@ public class QuestionManager : MonoBehaviour
 
     void CheckAnswer()
     {
-        //GameManager.instance.currentAnswer
         Question q = questionsList[0];
         int index = q.bonne_Reponse;
 
@@ -93,40 +90,8 @@ public class QuestionManager : MonoBehaviour
                 StartCoroutine(FadeToColor(fadeSpeed, badAnswerColor, rep[j], result[j]));
             }
         }
-
-        //StartCoroutine(FadeToAnswer(fadeSpeed));
         questionsList.Remove(q);
         triggeredQuestion = false;
-
-    }
-
-    IEnumerator FadeToAnswer(float t)
-    {
-        Question q = questionsList[0];
-
-        int index = q.bonne_Reponse;
-
-        Debug.Log("it worked");
-        for (float i = 0f; i < t; i += 0.1f)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                if (j == index)
-                {
-                    rep[j].color = Color.Lerp(rep[j].color, Color.green, i / t);
-                    result[j].color = Color.Lerp(result[j].color, Color.green, i / t);
-                }
-                else
-                {
-                    rep[j].color = Color.Lerp(rep[j].color, Color.red, i / t);
-                    result[j].color = Color.Lerp(result[j].color, Color.red, i / t);
-                }
-                yield return null;
-            }
-
-        }
-
-        
 
     }
 
@@ -138,23 +103,5 @@ public class QuestionManager : MonoBehaviour
             textToChange.color = Color.Lerp(textToChange.color, newColor, i / t);
             yield return null;
         }
-        /*
-        switch (textToChange)
-        {
-            case null:
-                for (float i = 0f; i < t; i += 0.1f)
-                {
-                    imageToChange.color = Color.Lerp(imageToChange.color, newColor, i / t);
-                    yield return null;
-                }
-                    break;
-            default:
-                for (float i = 0f; i < t; i += 0.1f)
-                {
-                    textToChange.color = Color.Lerp(textToChange.color, newColor, i / t);
-                    yield return null;
-                }
-                break;
-        }*/
     }
 }

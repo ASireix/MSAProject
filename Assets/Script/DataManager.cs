@@ -11,9 +11,8 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WWW data = new WWW(Application.streamingAssetsPath + "/" + "QData.json");
-        questions = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Question[]>>>(data.text);
-
+        string json = ReadFromFile("QData.json");
+        questions = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Question[]>>>(json);
         /*foreach (KeyValuePair<string, Dictionary<string, Question[]>> o in questions)
         {
             //Debug.Log(o.Key);
@@ -24,12 +23,37 @@ public class DataManager : MonoBehaviour
             }
         }
         */
-
     }
 
-    // Update is called once per frame
-    void Update()
+    string ReadFromFile(string fileName)
     {
-        
+        string path = Application.streamingAssetsPath + "/" + fileName;
+        if (File.Exists(path))
+        {
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string json = reader.ReadToEnd();
+                return json;
+            }
+        }
+        else
+        {
+            Debug.Log("No such file");
+        }
+
+        return "";
     }
+
+    public void SaveJson(string fileName)
+    {
+        string path = Application.streamingAssetsPath + "/" + fileName;
+        string content = JsonConvert.SerializeObject(questions);
+        File.WriteAllText(path, content);
+    }
+
+    public void UpdateQuestions()
+    {
+        // change the "question" dictionary
+    }
+
 }
