@@ -1,5 +1,5 @@
 {
-  "Particuliers" : {
+  "Particuliers": {
     "Viticulture" : [
       {
         "intitule": "Qui a volé l'orange du marché ?",
@@ -9,7 +9,7 @@
       {
         "intitule": "La question2",
         "reponses": ["Réponse1", "Réponse2", "Réponse3"],
-        "bonne_Reponse" : 2
+        "bonne_Reponse" : 1
       }
     ],
     "Jardins_Espaces_Verts": [
