@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public enum Difficulty{ Particuliers, Exploitant };
+    string currentDifficulty;
+    string currentCategorie;
     public enum Categorie { Viticulture, Élevage, Cultures, Jardins_Espaces_Verts };
 
     public Difficulty difficulty;
@@ -23,11 +25,18 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentAnswer = 0;
+        currentDifficulty = Difficulty.Particuliers.ToString();
+        currentCategorie = Categorie.Viticulture.ToString();
         dataManager = GetComponent<DataManager>();
         DontDestroyOnLoad(gameObject);
     }
 
     public DataManager GetDataManager() {
         return dataManager;
+    }
+
+    public Question[] GetQuestions()
+    {
+        return dataManager.questions[currentDifficulty][currentCategorie];
     }
 }
