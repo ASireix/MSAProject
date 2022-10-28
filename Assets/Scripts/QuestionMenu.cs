@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,15 +26,14 @@ public class QuestionMenu : MonoBehaviour {
     // external references
     private Transform question;  // question getting edited
     private TMP_Text question_label;
-
+    [SerializeField] GameObject questionPrefab;
 
     private void Start() {
-        Transform t = GetComponent<Transform>();
-        question_entry = t.Find("Question Entry").GetComponent<TMP_InputField>();
+        question_entry = transform.Find("Question Entry").GetComponent<TMP_InputField>();
         answers_entries = new TMP_InputField[3];
         for (int i = 1; i < 4; i++)
-            answers_entries[i-1] = t.Find("Answer" + i + " Entry").GetComponent<TMP_InputField>();
-        good_answer = t.Find("Slider").GetComponent<Slider>();
+            answers_entries[i-1] = transform.Find("Answer" + i + " Entry").GetComponent<TMP_InputField>();
+        good_answer = transform.Find("Slider").GetComponent<Slider>();
 
         current_difficulty = GameManager.Difficulty.Particuliers;
         StartCoroutine("WaitForData");
@@ -43,7 +41,7 @@ public class QuestionMenu : MonoBehaviour {
 
     public void loadquestion(GameObject question) {
         // saving gameobject as a transform for conveniance (useful later)
-        this.question = question.GetComponent<Transform>();
+        this.question = question.transform;
         // getting question text
         TMP_Text label = this.question.Find("Label").GetComponent<TMP_Text>();
         question_label = label;  // saving label (useful later)
@@ -70,18 +68,31 @@ public class QuestionMenu : MonoBehaviour {
     }
 
     IEnumerator WaitForData() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         datas = GameManager.instance.dataManager.questions;
 
-        Transform t = GetComponent<Transform>();
-        Transform tthemes = t.parent.Find("Scroll View").getChild(0).getChild(0).getChild(0);
+        Transform tthemes = transform.parent.Find("Scroll View").GetChild(0).GetChild(0).GetChild(0);
 
-        for (int i = 0; i < datas["Particuliers"].Count; i++) {
-            // string theme, Question[] questions = datas["Particuliers"];
-            // Transform ttheme = tthemes.getChild(i);
-            // foreach (Question question in questions) {
-                
-            // }
+        int i = 0;
+        foreach ((string theme, Question[] questions) in datas["Particuliers"]) {
+            Transform tlabel = tthemes.GetChild(i).GetChild(1);
+            tlabel.GetComponent<TMP_Text>().text = theme;
+            Transform tquestions = tthemes.GetChild(i).GetChild(2);
+
+            if (questions.Length == 0) {
+                tquestions.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 70);
+                Instantiate(questionPrefab, new Vector3(5, -10, 0), Quaternion.identity, tquestions);
+            } else {
+                tquestions.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 10 + questions.Length * 60);
+            }
+            for (int j = 0; j < questions.Length; j++) {
+                GameObject _question = Instantiate(questionPrefab, new Vector3(), Quaternion.identity, tquestions);
+                _question.GetComponent<Button>().onClick.AddListener(delegate {loadquestion(_question);});
+                Transform tquestion = _question.transform;
+                tquestion.GetComponent<RectTransform>().SetLocalPositionAndRotation(new Vector3(5, -(10 + 60*j), 0), Quaternion.identity);
+                tquestion.GetChild(1).GetComponent<TMP_Text>().text = questions[i].intitule;
+            }
+            i++;
         }
     }
 
