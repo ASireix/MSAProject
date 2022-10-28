@@ -12,6 +12,7 @@ public class QuestionEditor : Editor
 
         if (GUILayout.Button("Start Questioning"))
             qManager.TriggerQuestion();
+        
 
         DrawDefaultInspector();
     }

@@ -27,6 +27,7 @@ public class QuestionManager : MonoBehaviour
     void Start()
     {
         questionsList = new List<Question>();
+        questionsList.AddRange(GameManager.instance.GetQuestions());
         currentTime = 0f;
     }
 
@@ -50,11 +51,6 @@ public class QuestionManager : MonoBehaviour
         timer.text = Mathf.Round(timeToAnswer - currentTime) + "";
     }
 
-    public void SetQuestions(Question[] questions)
-    {
-        questionsList.AddRange(questions);
-    }
-
     public void TriggerQuestion()
     {
         if (questionsList.Count <= 0)
@@ -65,7 +61,7 @@ public class QuestionManager : MonoBehaviour
 
         Question q = questionsList[0];
         triggeredQuestion = true;
-
+        question.text = q.intitule;
         for (int i = 0; i < rep.Count; i++)
         {
             rep[i].text = q.reponses[i];
