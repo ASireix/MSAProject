@@ -13,7 +13,9 @@ public class Grass : MonoBehaviour
 
         rnd = Random.Range(-0.2f, 0.2f);
         float xScale = transform.localScale.x;
-        transform.localScale = new Vector3(xScale+rnd, xScale+rnd, xScale+rnd);
+        float yScale = transform.localScale.y;
+        float zScale = transform.localScale.z;
+        transform.localScale = new Vector3(xScale+rnd, yScale+rnd, zScale+rnd);
         Physics.Raycast(new Vector3(0, 100.0f, 0), Vector3.down, out hit, 200.0f);
 
     }
