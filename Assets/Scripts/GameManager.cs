@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
     public Categorie categorie;
     public static GameManager instance;
     public DataManager dataManager;
+    public Scroller Scroller; 
 
     public int currentAnswer;
+    public float ScrollingSpeed = .05f;
+    private float _initScrollingSpeed;
 
 
     private void Awake() {
@@ -24,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         currentAnswer = 0;
         dataManager = GetComponent<DataManager>();
+        _initScrollingSpeed = ScrollingSpeed;
         DontDestroyOnLoad(gameObject);
     }
 
