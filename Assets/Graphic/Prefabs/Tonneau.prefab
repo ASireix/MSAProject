@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1152754653194482356}
   - component: {fileID: 2890078915223946878}
   - component: {fileID: 3334442458426190385}
+  - component: {fileID: 6991148868983879399}
   m_Layer: 0
   m_Name: Tonneau
   m_TagString: Untagged
@@ -99,3 +100,15 @@ CapsuleCollider:
   m_Height: 2.9432967
   m_Direction: 1
   m_Center: {x: 0, y: 1.4716483, z: 0}
+--- !u!114 &6991148868983879399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682645998740088747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c6f3ebd46e845489efc5e878d16cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
