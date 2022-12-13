@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public enum Difficulty{ Particuliers, Exploitant };
 	string currentDifficulty;
 	string currentCategorie;
-	public enum Categorie { Viticulture, Élevage, Cultures, Jardins_Espaces_Verts };
 
 	public Difficulty difficulty;
 	public Categorie categorie;
@@ -15,6 +13,9 @@ public class GameManager : MonoBehaviour
 	public DataManager dataManager;
 
 	public int currentAnswer;
+
+	[SerializeField]
+	private float score;
 
 
 	private void Awake() {
@@ -25,8 +26,8 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		currentAnswer = 0;
-		currentDifficulty = Difficulty.Particuliers.ToString();
-		currentCategorie = Categorie.Viticulture.ToString();
+		currentDifficulty = difficulty.ToString();
+		currentCategorie = categorie.ToString();
 		dataManager = GetComponent<DataManager>();
 		DontDestroyOnLoad(gameObject);
 	}
@@ -38,5 +39,21 @@ public class GameManager : MonoBehaviour
 	public Question[] GetQuestions()
 	{
 		return dataManager.questions[currentDifficulty][currentCategorie];
+	}
+
+	public void SetDiffAndCat(Difficulty diff, Categorie cat)
+    {
+		currentDifficulty = diff.ToString();
+		currentCategorie = cat.ToString();
+    }
+
+	public void SetDifficulty(Difficulty diff)
+	{
+		currentDifficulty = diff.ToString();
+	}
+
+	public void SetCategorie(Categorie cat)
+	{
+		currentCategorie = cat.ToString();
 	}
 }

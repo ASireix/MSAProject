@@ -15,7 +15,7 @@ public class QuestionMenu : MonoBehaviour {
     // meta data of edited data
     private int current_index;
     private string current_theme;
-    private GameManager.Difficulty current_difficulty;
+    private Difficulty current_difficulty;
 
     private Dictionary<string, Dictionary<string, Question[]>> datas;
 
@@ -37,7 +37,7 @@ public class QuestionMenu : MonoBehaviour {
             answers_entries[i-1] = t.Find("Answer" + i + " Entry").GetComponent<TMP_InputField>();
         good_answer = t.Find("Slider").GetComponent<Slider>();
 
-        current_difficulty = GameManager.Difficulty.Particuliers;
+        current_difficulty = Difficulty.Particuliers;
         StartCoroutine("WaitForData");
     }
 
@@ -85,7 +85,7 @@ public class QuestionMenu : MonoBehaviour {
         }
     }
 
-    public void loadDifficulty(GameManager.Difficulty difficulty) {
+    public void loadDifficulty(Difficulty difficulty) {
 
     }
 }
