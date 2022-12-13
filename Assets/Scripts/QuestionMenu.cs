@@ -74,7 +74,7 @@ public class QuestionMenu : MonoBehaviour {
         datas = GameManager.instance.dataManager.questions;
 
         Transform t = GetComponent<Transform>();
-        Transform tthemes = t.parent.Find("Scroll View").getChild(0).getChild(0).getChild(0);
+        Transform tthemes = t.parent.Find("Scroll View").GetChild(0).GetChild(0).GetChild(0);
 
         for (int i = 0; i < datas["Particuliers"].Count; i++) {
             // string theme, Question[] questions = datas["Particuliers"];
