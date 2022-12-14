@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SelectionDuNiveau.unity
+    guid: 69eb9cfc5763679468788e415311cb8e
+  - enabled: 1
+    path: Assets/Scenes/GenQuestion.unity
+    guid: 871075d4f83c18743ab5ade47e808f9a
   m_configObjects: {}
