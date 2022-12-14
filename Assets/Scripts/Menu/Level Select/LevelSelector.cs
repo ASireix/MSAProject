@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class LevelSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string launchSceneName;
+    public string returnSceneName;
 
     public void ChangeDifficulty(int diff)
     {
@@ -24,5 +15,15 @@ public class LevelSelector : MonoBehaviour
     public void ChangeCategorie(int cat)
     {
         GameManager.instance.SetCategorie((Categorie)cat);
+    }
+
+    public void LaunchGame()
+    {
+        GameManager.instance.ChangeScene(launchSceneName);
+    }
+
+    public void Return()
+    {
+        GameManager.instance.ChangeScene(returnSceneName);
     }
 }

@@ -51,6 +51,11 @@ public class QuestionManager : MonoBehaviour
 			return;
 		}
 
+        foreach (var item in questionsList)
+        {
+			Debug.Log(item.intitule);
+        }
+
 		Question q = questionsList[0];
 		triggeredQuestion = true;
 		question.text = q.intitule;

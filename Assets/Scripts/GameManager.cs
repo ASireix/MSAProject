@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	[SerializeField]
 	string currentDifficulty;
+	[SerializeField]
 	string currentCategorie;
 
 	public Difficulty difficulty;
@@ -56,4 +59,9 @@ public class GameManager : MonoBehaviour
 	{
 		currentCategorie = cat.ToString();
 	}
+
+	public void ChangeScene(string scenename)
+    {
+		SceneManager.LoadScene(scenename);
+    }
 }

@@ -12,7 +12,8 @@ public class DataManager : MonoBehaviour
 		string json = ReadFromFile("QData.json");
 		questions = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Question[]>>>(json);
 	}
-
+	// ATTENTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	// IL FAUT FAIRE CORRESPONDRE LES NOM MIS DANS QUESTION ET DANS LE JSON DONC : intitule,bonnes_response ect...
 	string ReadFromFile(string fileName) {
 		string path = Application.streamingAssetsPath + "/" + fileName;
 		if (File.Exists(path)) {

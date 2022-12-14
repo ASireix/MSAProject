@@ -1725,6 +1725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4080e040b6f0e7f4db7dcc8611db7d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  launchSceneName: GenQuestion
+  returnSceneName: MainMenu
 --- !u!224 &1061135154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2299,7 +2301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1381814260}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1061135153}
+        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
+        m_MethodName: Return
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1381814260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2421,7 +2435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1468596102}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1061135153}
+        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
+        m_MethodName: LaunchGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GenQuestion
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1468596102
 MonoBehaviour:
   m_ObjectHideFlags: 0
