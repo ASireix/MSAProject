@@ -20,10 +20,24 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private float score;
 
+	public float obstacleCourseTime;
+	float currentOTime = 0;
+
+	public float pauseTime;
+
+	public float timeToAnswer;
+
+	public bool gameRunning;
+
+	public GameState gameState;
+
+	private QuestionManager questionManager;
+	float totalTime;
 
 	private void Awake() {
 		if (instance != null && instance != this) Destroy(this);
 		else instance = this;
+		
 	}
 
 	void Start()
@@ -33,9 +47,39 @@ public class GameManager : MonoBehaviour
 		currentCategorie = categorie.ToString();
 		dataManager = GetComponent<DataManager>();
 		DontDestroyOnLoad(gameObject);
+		gameRunning = false;
+		totalTime = GetQuestions().Length * (obstacleCourseTime + timeToAnswer) + (GetQuestions().Length * 2 * pauseTime - 1);
+		Debug.Log("Total time = " + totalTime);
 	}
 
-	public DataManager GetDataManager() {
+    private void Update()
+    {
+        switch (gameState)
+        {
+            case GameState.Obstacle:
+				if (currentOTime >= obstacleCourseTime)
+				{
+					gameState = GameState.Pause;
+				}
+				else
+				{
+					currentOTime += Time.deltaTime;
+				}
+				break;
+            case GameState.Pause:
+				StartCoroutine(StartPause(pauseTime,GameState.Question));
+				gameState = GameState.Void;
+                break;
+            case GameState.Question:
+                break;
+            case GameState.End:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public DataManager GetDataManager() {
 		return dataManager;
 	}
 
@@ -63,5 +107,21 @@ public class GameManager : MonoBehaviour
 	public void ChangeScene(string scenename)
     {
 		SceneManager.LoadScene(scenename);
+    }
+
+	public IEnumerator StartPause(float duration, GameState nextState)
+    {
+		yield return new WaitForSeconds(duration);
+		if (nextState == GameState.Question)
+        {
+			questionManager.timeToAnswer = timeToAnswer;
+			questionManager.TriggerQuestion();
+        }
+		gameState = nextState;
+    }
+
+	public void SetQuestionManager(QuestionManager q)
+    {
+		questionManager = q;
     }
 }

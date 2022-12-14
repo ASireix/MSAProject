@@ -23,15 +23,19 @@ public class QuestionManager : MonoBehaviour
 	public Color goodAnswerColor;
 	public Color badAnswerColor;
 
+	public GameObject questionElements;
+
 	// Start is called before the first frame update
 	void Start() {
 		questionsList = new List<Question>();
 		questionsList.AddRange(GameManager.instance.GetQuestions());
 		currentTime = 0f;
+		GameManager.instance.SetQuestionManager(this);
 	}
 
 	// Update is called once per frame
 	void Update() {
+
 		if (currentTime < timeToAnswer && triggeredQuestion) {
 			currentTime += Time.deltaTime;
 		}
@@ -85,7 +89,14 @@ public class QuestionManager : MonoBehaviour
 		}
 		questionsList.Remove(q);
 		triggeredQuestion = false;
-
+		if (questionsList.Count > 0)
+        {
+			StartCoroutine(GameManager.instance.StartPause(GameManager.instance.pauseTime, GameState.Obstacle));  //////////////////////////////////////////////////
+        }
+        else
+        {
+			StartCoroutine(GameManager.instance.StartPause(GameManager.instance.pauseTime, GameState.End)); ////////////////////////////////////////
+		}
 	}
 
 	IEnumerator FadeToColor(float t, Color newColor, TextMeshProUGUI textToChange, Image imageToChange)
